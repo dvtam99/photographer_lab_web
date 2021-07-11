@@ -1,0 +1,42 @@
+.right-title {
+    background: #303030; 
+    height: 1.4rem;
+    padding: 7px 15px;
+}
+.right-title p {
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    line-height: 1.4rem;
+    margin: 0;
+    color: #fff;
+}
+.right-content {
+    background: RGBA(138,60,62,0.55);
+    height: 3rem;
+    margin-top: 0;
+    padding: 10px;
+    display: grid;
+}
+.right-content a {
+    font-size: 15px;
+    color: #fff;
+}
+.right-content a:hover {
+    text-decoration: none;
+}
+.facebook::before {
+    vertical-align: middle;
+    content:url('../img/facebook.png');
+    padding-right: 5px;
+}
+.twitter::before {
+    vertical-align: middle;
+    content:url('../img/twitter.png');
+    padding-right: 5px;
+}
+.google::before {
+    vertical-align: middle;
+    content:url('../img/google.png');
+    padding-right: 5px;
+}
+

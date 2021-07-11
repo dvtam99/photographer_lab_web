@@ -1,0 +1,106 @@
+.header{
+    width: 100vw !important;
+    min-height: 178px 
+}
+.header a {
+    color: white;
+    text-decoration: none;
+   
+}
+.menu {
+    background-color: #303030;
+    height: 48px;
+    margin: 0;
+}
+ul {
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 0;
+    padding: 0 0 0 0;
+}
+li a {
+    margin: 0 0 0 0 ;
+    padding: 0 10px 0 10px;
+}
+li::before {
+    width: 1px;
+    height: 2.6rem;
+    display: inline-block;
+    vertical-align: middle;
+    opacity: .24;
+    content: '';
+    background-color: #acacac;
+    background-image: linear-gradient(to bottom,#fff,#303030);
+    background-repeat: repeat-x;
+}
+ul::after {
+    width: 1px;
+    height: 2.6rem;
+    display: inline-block;
+    vertical-align: middle;
+    opacity: .24;
+    content: '';
+    background-color: #acacac;
+    background-image: linear-gradient(to bottom,#fff,#303030);
+    background-repeat: repeat-x;
+    margin-left: 29.5rem;
+}
+.current {
+    font-family: arial;
+    font-weight: bold;
+}
+.title {
+    position: sticky;
+    height: 5rem;
+    background-color: #722f31;
+    margin: 0;
+    padding: 25px 0 25px 0;
+}
+.title-container {
+    display: flex;
+}
+.title-container .img-link::before {
+    content: url('../img/camera.png');
+}
+.content-title {
+    padding: 0;
+    margin: 0;
+}
+.title-link {
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 47px;
+    line-height: 36px;
+    margin-left: 10px;
+}
+.title-link:hover {
+    text-decoration: underline;
+}
+.title-wellcome {
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    color: white;
+    margin: 10px 0 0 15px;
+}
+@media only screen and (min-width: 769px) {
+    .menu {
+        min-width: 60rem;
+    }
+    .title{
+         min-width: 60rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .main-container{
+        display: inline-grid !important;
+    }
+    .container{
+    }
+    .container-block{
+        /*min-width: unset !important;*/
+    }
+}

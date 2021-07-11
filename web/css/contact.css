@@ -1,0 +1,44 @@
+.contact {
+    color: #fff;
+}
+.contact-title {
+    font-family: 'Times New Roman',Helvetica,Arial,sans-serif;
+}
+.contact-p-name {
+    font-size: 22px;
+    margin: 50px 0 10px 0;
+}
+.contact-info {
+    font-size: 16px;
+}
+.contact-phone-mail {
+    margin: 15px 0 0 0;
+}
+.contact-phone-mail a{
+    text-decoration: none;
+    color: white
+}
+table {
+    width: 30rem;
+    padding: 0;
+    margin: 0;
+}
+table a:hover {
+    text-decoration: underline;
+}
+.tb-address-info {
+    width: 15rem;
+}
+.tb-contact-info {
+    width: 14rem;
+}
+.td-name {
+    width: 12%;
+}
+.td-value {
+    width: 88%;
+}
+.contact-map {
+    width: 46rem;
+    margin: 5rem 0 1rem 0;
+}
