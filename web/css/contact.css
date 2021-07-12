@@ -18,11 +18,7 @@
     text-decoration: none;
     color: white
 }
-table {
-    width: 30rem;
-    padding: 0;
-    margin: 0;
-}
+
 table a:hover {
     text-decoration: underline;
 }
@@ -38,7 +34,32 @@ table a:hover {
 .td-value {
     width: 88%;
 }
-.contact-map {
+/*.contact-map {
     width: 46rem;
     margin: 5rem 0 1rem 0;
+}*/
+@media only screen and (min-width: 769px) {
+    .contact-map {
+        width: 46rem;
+        margin: 5rem 0 1rem 0;
+    }
+    table {
+        width: 30rem;
+        padding: 0;
+        margin: 0;
+    }
+    .iframe-map{
+        width: 600px;
+        height: 450px
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+        max-width: 90% !important;
+    }
+    .iframe-map{
+        width: 60vw !important;
+        height: 45vw !important;
+    }
 }

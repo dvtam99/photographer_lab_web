@@ -16,8 +16,6 @@
     </head>
     <body>
         <%@include file="component/header.jsp" %>
-
-
         <div class="container main-container ">
             <div class="container-block px-4">
 
@@ -43,22 +41,7 @@
                             </div>
                         </c:forEach>
                     </div>
-
-
-                    <div class="div-page">
-                        <c:if test="${numberPage > 1}">
-                            <c:forEach begin="1" end="${numberPage}" var="page">
-                                <c:if test="${currentPage == page}">
-                                    <a class="link-disabled"
-                                       href="home?page=${page}">${page}</a>
-                                </c:if>
-                                <c:if test="${currentPage != page}">
-                                    <a class="" href="home?page=${page}">${page}</a>
-                                </c:if>
-                            </c:forEach>
-                        </c:if>
-
-                    </div>
+                    <%@include file="component/paging.jsp" %>
 
                     <div class="home-about">
                         <p class="p-about-title">About me</p>

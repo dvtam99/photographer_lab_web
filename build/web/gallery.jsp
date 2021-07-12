@@ -14,13 +14,14 @@
         <link rel="shortcut icon" type="image/png" href="img/camera_icon.png"/>
         <link href="css/gallery.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/showSlides.js"></script>
+
     </head>
     <body>
         <%@include file="component/header.jsp" %>
-        <div class="container">
-            <div class="container-block">
+        <div class="container main-container ">
+            <div class="container-block px-4">
                 <div class="left">
 
                     <p class="error-text">${error}</p>
@@ -35,8 +36,8 @@
                                 </button>
                             </div>
                             <div class="mySlides fade" style="display: block">
-                                    <img src="${galleryInfo.getPicture()}" style="width:100%">
-                                </div>
+                                <img src="${galleryInfo.getPicture()}" style="width:100%">
+                            </div>
                             <c:forEach items="${up}" var="img">
                                 <div class="mySlides fade">
                                     <img src="${img}" style="width:100%">
@@ -48,10 +49,9 @@
 
 
                         <script>
-//                            var slideIndex = 0;
                             showSlides();
-
                         </script>
+
                         <div class="gallery-content">
                             <div class="contain-gallery-img">
                                 <c:forEach items="${up}" var="img">
@@ -93,8 +93,9 @@
                         </div>
                     </div>
                 </div>
-                <%@include file="component/right.jsp" %>
+
             </div>
+            <%@include file="component/right.jsp" %>
         </div>
         <%@include file="component/footer.jsp" %>
     </body>

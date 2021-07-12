@@ -19,8 +19,9 @@
     </head>
     <body>
         <%@include file="component/header.jsp" %>
-        <div class="container">
-            <div class="container-block">
+        <div class="container main-container ">
+            <div class="container-block px-4">
+
                 <div class="left">
 
                     <p class="error-text">${error}</p>
