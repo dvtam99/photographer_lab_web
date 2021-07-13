@@ -68,6 +68,7 @@ public class DescriptionDAO extends DBContext {
             cnn = getConnection();
             ps = cnn.prepareStatement(querry);
             ps.setInt(1, amount);
+            System.out.println("dal.DescriptionDAO.addCount()" + amount);
             ps.executeUpdate();
         } catch (Exception e) {
             throw e;

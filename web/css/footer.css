@@ -16,6 +16,7 @@
 .number {
     padding-top: 2rem;
     float: right;
+    padding-right: 1em;
 }
 .number p {
     text-align: center;
