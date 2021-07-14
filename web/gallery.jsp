@@ -30,11 +30,11 @@
 
                         <div class="slideshow-container">
 <!--                            <div class="cover">
-                                <button>
+                                <button onclick="showSlides()">
                                     play
                                 </button>
                             </div>-->
-                            <div class="mySlides fade" style="display: block">
+                            <div class="mySlides" style="display: block">
                                 <img src="${galleryInfo.getPicture()}" style="width:100%">
                             </div>
                             <c:forEach items="${listImage}" var="img">
