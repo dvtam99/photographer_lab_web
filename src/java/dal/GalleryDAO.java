@@ -19,6 +19,7 @@ public class GalleryDAO extends DBContext {
 
     private final String patch = "gallery/";
 
+    // lay 3 gallery dau tien
     public ArrayList<GalleryInfo> getTop3Gallery() throws Exception {
         ArrayList<GalleryInfo> galleryInfos = new ArrayList<>();
         String querry = "SELECT Top 3 Id, [Name] FROM Gallery";
@@ -47,6 +48,7 @@ public class GalleryDAO extends DBContext {
         return galleryInfos;
     }
 
+    // find gallery by id
     public GalleryInfo getGalleryById(int gallery) throws Exception {
         String querry = "SELECT Name, DescriptionText, DescriptionPicture FROM Gallery WHERE id=?";
         GalleryInfo galleryInfo = null;
@@ -73,6 +75,7 @@ public class GalleryDAO extends DBContext {
         return galleryInfo;
     }
 
+    // lay list gallery theo pagging
     public ArrayList<GalleryInfo> getListGallery(int numberGalleryInPage, int pageCurrent) throws Exception {
         String querry = "SELECT * FROM (\n"
                 + "SELECT ROW_NUMBER() OVER(ORDER BY id) as Number, Id, [Name], DescriptionText, DescriptionPicture FROM Gallery\n"
@@ -105,6 +108,7 @@ public class GalleryDAO extends DBContext {
         return list;
     }
 
+    // dem tong so gallery 
     public int getNumPage(int numberGalleryInPage) throws Exception {
         String querry = "SELECT COUNT(id) as num FROM Gallery";
         int numpage = 0;
@@ -135,6 +139,7 @@ public class GalleryDAO extends DBContext {
         return numpage;
     }
 
+    // kiem tra xem gallery co ton tai ko
     public boolean checkExitsId(int id) throws Exception {
         String querry = "SELECT * FROM Gallery WHERE id=?";
         Connection cnn = null;

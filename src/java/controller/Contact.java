@@ -30,20 +30,11 @@ public class Contact extends BaseController {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html; charset=UTF-8");
-            ContactInfo contact = null;
-            try {
-                contact = contactDAO.getContact();
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
-            int curretItemMenu = 2;
-            request.setAttribute("curretItemMenu", curretItemMenu);
+            ContactInfo contact = contactDAO.getContact();
+
             request.setAttribute("contact", contact);
-            try {
-                setMenuGallery(request);
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
+            setMenuGallery(request);
+
             request.getRequestDispatcher("contact.jsp").forward(request, response);
         } catch (Exception e) {
             request.getRequestDispatcher("error/error.jsp").forward(request, response);

@@ -58,7 +58,7 @@ public class CounterFilter implements Filter {
             if (servletPath.equals("/home")) {
                 // neu vao home thi tang count
                 newCount = count++;
-                descriptionDAO.addCount(newCount);
+                descriptionDAO.updateCount(newCount);
 
             } else {
                 newCount = count;

@@ -18,6 +18,7 @@ public class ImageDAO extends DBContext {
 
     private final String patch = "gallery/";
 
+    // lay list anh theo gallery, pagging
     public ArrayList<String> getListImage(int numberGalleryInPage, int pageCurrent, int gallery) throws Exception {
         String querry = "SELECT Name FROM (\n"
                 + "SELECT ROW_NUMBER() OVER(ORDER BY id) as Number, [Name] FROM [Image] WHERE Gallery = ?\n"
@@ -50,6 +51,7 @@ public class ImageDAO extends DBContext {
         return list;
     }
 
+    // đếm số trang của ảnh theo gallery
     public int getNumPage(int numberGalleryInPage, int gallery) throws Exception {
         String querry = "SELECT COUNT(id) as num FROM [Image] WHERE Gallery = ?";
         int numpage = 0;

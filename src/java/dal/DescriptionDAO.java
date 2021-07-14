@@ -18,6 +18,7 @@ public class DescriptionDAO extends DBContext {
 
     private final String patch = "gallery/";
 
+    // description
     public Description getDescription() throws Exception {
         Description description = null;
         Connection cnn = null;
@@ -39,6 +40,7 @@ public class DescriptionDAO extends DBContext {
         return description;
     }
 
+    // get count to show the number of visits page
     public int getCount() throws Exception {
         Connection cnn = null;
         PreparedStatement ps = null;
@@ -59,7 +61,8 @@ public class DescriptionDAO extends DBContext {
         return 0;
     }
 
-    public int addCount(int amount) throws Exception {
+    //update count
+    public void updateCount(int amount) throws Exception {
         Connection cnn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -68,13 +71,11 @@ public class DescriptionDAO extends DBContext {
             cnn = getConnection();
             ps = cnn.prepareStatement(querry);
             ps.setInt(1, amount);
-            System.out.println("dal.DescriptionDAO.addCount()" + amount);
             ps.executeUpdate();
         } catch (Exception e) {
             throw e;
         } finally {
             closeConnection(rs, ps, cnn);
         }
-        return 0;
     }
 }

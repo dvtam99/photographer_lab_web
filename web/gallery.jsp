@@ -16,7 +16,6 @@
         <title>JSP Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="js/showSlides.js"></script>
-
     </head>
     <body>
         <%@include file="component/header.jsp" %>
@@ -30,46 +29,37 @@
                         <p class="p-title">${galleryInfo.getName()}</p>
 
                         <div class="slideshow-container">
-                            <div class="cover">
+<!--                            <div class="cover">
                                 <button>
                                     play
                                 </button>
-                            </div>
+                            </div>-->
                             <div class="mySlides fade" style="display: block">
                                 <img src="${galleryInfo.getPicture()}" style="width:100%">
                             </div>
-                            <c:forEach items="${up}" var="img">
+                            <c:forEach items="${listImage}" var="img">
                                 <div class="mySlides fade">
                                     <img src="${img}" style="width:100%">
                                 </div>
                             </c:forEach>
 
-
                         </div>
-
 
                         <script>
                             showSlides();
                         </script>
 
                         <div class="gallery-content">
-                            <div class="contain-gallery-img">
-                                <c:forEach items="${up}" var="img">
-                                    <a class="" href="gallery?id=${galleryInfo.getId()}&page=${pagination.getCurrentPage()}&img=${img}">
+
+                            <div class="contain-gallery-img row">
+                                <c:forEach items="${listImage}" var="img">
+                                    <a class="col-md-3 col-xs-6" href="gallery?id=${galleryInfo.getId()}&page=${currentPage}&img=${img}">
                                         <div class="gallery-background-img">
                                             <img src="${img}" alt=""/>
                                         </div>
                                     </a>
                                 </c:forEach>
-                            </div>
-                            <div>
-                                <c:forEach items="${down}" var="img">
-                                    <a class="" href="gallery?id=${galleryInfo.getId()}&page=${pagination.getCurrentPage()}&img=${img}">
-                                        <div class="gallery-background-img">
-                                            <img src="${img}" alt=""/>
-                                        </div>
-                                    </a>
-                                </c:forEach>
+
                             </div>
 
                             <div class="div-page">

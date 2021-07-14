@@ -36,94 +36,50 @@ public class Gallery extends BaseController {
             request.setCharacterEncoding("UTF-8");
             response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html; charset=UTF-8");
-            Description description = null;
-            DescriptionDAO descriptionDAO = new DescriptionDAO();
-            try {
-                description = descriptionDAO.getDescription();
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
-            request.setAttribute("description", description);
 
             String rawPage = request.getParameter("page") == null ? "1" : request.getParameter("page");
             int currentPage = 0, numberpage = 0;
-            ArrayList<String> list = new ArrayList();
-
-            try {
-                currentPage = Integer.parseInt(rawPage);
-            } catch (NumberFormatException e) {
-                currentPage = 1;
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
-
+            ArrayList<String> listImage = new ArrayList();
+            currentPage = Integer.parseInt(rawPage);
             String rawGallery = request.getParameter("id");
-            int gallery = 0;
-            try {
-                gallery = Integer.parseInt(rawGallery);
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
+            int galleryId = 0;
+            galleryId = Integer.parseInt(rawGallery);
 
-            try {
-                //check gallery í exits in database
-                if (!galleryDAO.checkExitsId(gallery)) {
-                    request.setAttribute("error", "This gallery don't exits");
-                }
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
+            //check gallery í exits in database
+            if (!galleryDAO.checkExitsId(galleryId)) {
+                request.setAttribute("error", "This gallery don't exits");
             }
 
             int numberImageInPage = 8;
-            try {
-                numberpage = imageDAO.getNumPage(numberImageInPage, gallery);
-                //If numberpage is greater than 0 then need to handle the current page. otherwise there is no need to handle it
-                if (numberpage > 0) {
-                    //If the current page is larger than the number of pages, set the current page to be the maximum page
-                    if (currentPage > numberpage) {
-                        currentPage = numberpage;
-                        //If the current page is less than 0, set the current page to be the minimum page
-                    } else if (currentPage < 1) {
-                        currentPage = 1;
-                    }
 
-                    list = imageDAO.getListImage(numberImageInPage, currentPage, gallery);
+            numberpage = imageDAO.getNumPage(numberImageInPage, galleryId);
+            //If numberpage is greater than 0 then need to handle the current page. otherwise there is no need to handle it
+            if (numberpage > 0) {
+                //If the current page is larger than the number of pages, set the current page to be the maximum page
+                if (currentPage > numberpage) {
+                    currentPage = numberpage;
+                    //If the current page is less than 0, set the current page to be the minimum page
+                } else if (currentPage < 1) {
+                    currentPage = 1;
                 }
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
+
+                listImage = imageDAO.getListImage(numberImageInPage, currentPage, galleryId);
             }
 
-            ArrayList<String> up = new ArrayList();
-            ArrayList<String> down = new ArrayList();
+            GalleryInfo galleryInfo =  galleryDAO.getGalleryById(galleryId);
 
-            int elementInTopAndBottom = numberImageInPage / 2;
-            for (int i = 0; i < elementInTopAndBottom && i < list.size(); i++) {
-                up.add(list.get(i));
-            }
-            for (int i = elementInTopAndBottom; i < numberImageInPage && i < list.size(); i++) {
-                down.add(list.get(i));
-            }
-
-            GalleryInfo galleryInfo = null;
-            try {
-                galleryInfo = galleryDAO.getGalleryById(gallery);
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
             String imageDisplay = request.getParameter("img");
-            //if yser don't chose any image before, set deafult image for gallery
+            // set deafult image for gallery
             if (imageDisplay != null) {
                 galleryInfo.setPicture(imageDisplay);
             }
-            try {
-                setMenuGallery(request);
-            } catch (Exception e) {
-                request.setAttribute("error", "Some errors have occurred, some information cannot be displayed");
-            }
 
-            request.setAttribute("gallery", gallery);
-            request.setAttribute("up", up);
-            request.setAttribute("down", down);
+            // set data for menu
+            setMenuGallery(request);
+
+            request.setAttribute("listImage", listImage);
             request.setAttribute("galleryInfo", galleryInfo);
+            // for pagging
             request.setAttribute("numberPage", numberpage);
             request.setAttribute("currentPage", currentPage);
 

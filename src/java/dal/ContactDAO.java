@@ -16,6 +16,7 @@ import java.sql.ResultSet;
  */
 public class ContactDAO extends DBContext {
 
+    //get contact from database
     public ContactInfo getContact() throws Exception {
         ContactInfo contact = null;
         Connection cnn = null;

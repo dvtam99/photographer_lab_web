@@ -60,6 +60,7 @@ body{
 }
 .link-disabled {
     pointer-events: none;
+    font-weight: bold;
 }
 
 .left p {
@@ -160,11 +161,11 @@ body{
 
 .px-2{
     padding-left: 0.5em;
-    padding-right: 0.5em;
+    /*padding-right: 0.5em;*/
 }
 .px-4{
     padding-left: 1em;
-    padding-right: 1em;
+    /*padding-right: 1em;*/
 }
 img {
     width: 99%;

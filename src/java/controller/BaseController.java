@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public abstract class BaseController extends HttpServlet {
 
+    // set data for menu on header
     public void setMenuGallery(HttpServletRequest request) throws Exception {
         GalleryDAO galleryDAO = new GalleryDAO();
         ArrayList<GalleryInfo> menuGallery = new ArrayList<>();
